@@ -37,6 +37,7 @@ typealias TestBlockCallBackDemo2 = ([String: Any]) -> Void
 
 class TestViewController: UIViewController {
     
+    var testtestDemo = (() -> Void).self
     var testBlockCallBackDemo : TestBlockCallBackDemo?
     
     var testBlockCallBackDemo1: TestBlockCallBackDemo1?
@@ -52,6 +53,9 @@ class TestViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
+        
      view.backgroundColor = UIColor.red
         
         
@@ -61,6 +65,8 @@ class TestViewController: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
   
+        
+        
         let name = "flowerflower"
         let age = 18
         let userInfo = ["name": name,"age":age] as [String : Any]
