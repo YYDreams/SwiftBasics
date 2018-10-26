@@ -83,8 +83,20 @@ extension ViewController {
             
             
             print("testBlockCallBackDemo")
+            
         }
         
+        testVC.testBlockCallBackDemo1 = { (name: String) -> Void in
+            
+            
+            print("testBlockCallBackDemo1: name\(name)")
+            
+        }
+        testVC.testBlockCallBackDemo2 = {(userInfo:[String: Any]) -> Void in
+            
+            print("testBlockCallBackDemo2: userInfo\(userInfo)")
+
+        }
         
  
       

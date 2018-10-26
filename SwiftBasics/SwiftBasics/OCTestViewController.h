@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+
 @interface OCTestViewController : UIViewController
 
+
 @property(nonatomic, copy)void(^handlerOnClickCallBack)(void);
+
 
 @property(nonatomic, copy)void(^handlerOnClick1CallBack)(NSString *userId);
 

@@ -32,7 +32,7 @@ import UIKit
 
 
 typealias TestBlockCallBackDemo = () -> Void
-typealias TestBlockCallBackDemo1 = (name:String) -> Void
+typealias TestBlockCallBackDemo1 = (_ name:String) -> Void
 typealias TestBlockCallBackDemo2 = ([String: Any]) -> Void
 
 class TestViewController: UIViewController {
