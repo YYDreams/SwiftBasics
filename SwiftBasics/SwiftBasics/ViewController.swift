@@ -9,98 +9,82 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
 
-
-    }
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
-        
-        setupArrayAndDictDemo()
-        
-        optionalDemo()
-        
-        
-        repeatDemo()
-        
-        
-    }
-
-
-}
-
-//MARK: Array and Dict
-extension ViewController{
-    
-    private func setupArrayAndDictDemo(){
-        
-        let emptyArray = [String]()
-        let emptyDict = [String:Any]()
-        
-        
-        print("emptyArray:\(emptyArray) emptyDict:\(emptyDict)")
-        
-        
-        
-    }
-    
-    
-    
-}
-
-//MARK: --------------
-extension ViewController{
-    
-    private func optionalDemo(){
- 
-        let interestingNumbers = [
-            "Prime": [2, 3, 5, 7, 11, 13],
-            "Fibonacci": [1, 1, 2, 3, 5, 8],
-            "Square": [1, 4, 9, 16, 25],
-            ]
-        
-        print("interestingNumbers:\(interestingNumbers)")
-
-        var  largest = 0
-        
-        
-        for (kind,numbers) in interestingNumbers {
-            
-            for number in numbers {
-                
-                if number > largest {
-                    
-                largest = number
-                    
-                }
-            }
-            print("kind:\(kind) numbers:\(numbers)")
+        loadData {
+         print("被回调了")
         }
-        print("largest:\(largest)")
+        
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(testDemo), name: NSNotification.Name("TestNotification"), object: nil)
+        
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(testDemo1), name: NSNotification.Name("Test1Notification"), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(testDemo2), name: NSNotification.Name("Test2Notification"), object: nil)
 
     }
     
     
-    
-    private func repeatDemo(){
+    func loadData(finished:()->())
+    {
+        print("执行耗时操作")
         
-        var m = 2
-        repeat {
-            m = m * 2
-            
-            print("m:\(m)")
-
-        } while m < 100
-        
-        print(m)
-        
+        finished()
     }
+    
+    
+    
+    deinit {
+        
+        print("deinitdeinitdeinit")
 
-    
-    
-    
+        NotificationCenter.default.removeObserver(self)
+    }
     
 }
+    
+extension ViewController {
+        
+        @objc func testDemo(){
+            
+            print("testDemotestDemo")
+        }
+    
+    @objc func testDemo1(noti:Notification){
+        
+        
+        guard let str = noti.object as? String else {
+            return
+        }
+        
+        print("noti \(str)")
+    }
+    @objc func testDemo2(noti:Notification){
+        
+        print("noti:\(noti.userInfo!)")
+
+        let name = noti.userInfo!["name"] as!  String
+        let age = noti.userInfo!["age"]  as! Int
+        
+        print("name:\(name)  age:\(age)")
+    }
+    
+    @IBAction func btnOnClick() {
+        
+        
+        let testVC = TestViewController()
+   
+        
+
+        navigationController?.pushViewController(testVC, animated: true)
+        
+        
+        
+        
+    }
+}
+
