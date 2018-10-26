@@ -77,9 +77,18 @@ extension ViewController {
         
         
         let testVC = TestViewController()
-   
+         testVC.delegate = self
         
-
+        testVC.testBlockCallBackDemo = { () ->Void in
+            
+            
+            print("testBlockCallBackDemo")
+        }
+        
+        
+ 
+      
+        
         navigationController?.pushViewController(testVC, animated: true)
         
         
@@ -87,4 +96,26 @@ extension ViewController {
         
     }
 }
+
+extension ViewController:TestViewControllerDelegate{
+
+    
+ 
+    func testDelegateDemo() {
+        print("TestViewControllerDelegate: testDelegateDemo")
+        
+    }
+
+    func testDelegateDemo1(name: String) {
+        
+        print("TestViewControllerDelegate: name\(name)")
+    }
+    func testDelegateDemo2(userInfo: [String : Any]) {
+        
+        print("TestViewControllerDelegate: userInfo\(userInfo)")
+    }
+    
+}
+
+
 

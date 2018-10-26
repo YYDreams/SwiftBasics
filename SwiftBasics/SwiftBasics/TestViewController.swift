@@ -8,36 +8,79 @@
 
 import UIKit
 
-class TestViewController: UIViewController {
 
+/**
  
+ 注意 如果是可选实现的方法 则 protocol TestViewControllerDelegate:NSObjectProtocol 前要加上@objc
+ 如果没有则前面可不加@objc
+ 
+ 如果必须实现的方法没有实现的话 会报错 xcode会自动补全没有实现的方法
+
+ */
+ @objc protocol TestViewControllerDelegate:NSObjectProtocol {
+ 
+    // 必须实现
+    func testDelegateDemo()
+
+    func testDelegateDemo1(name: String)
+ 
+    //可选
+    @objc optional func testDelegateDemo2(userInfo: [String : Any])
+
+    
+}
+
+
+typealias TestBlockCallBackDemo = () -> Void
+typealias TestBlockCallBackDemo1 = (name:String) -> Void
+typealias TestBlockCallBackDemo2 = ([String: Any]) -> Void
+
+class TestViewController: UIViewController {
+    
+    var testBlockCallBackDemo : TestBlockCallBackDemo?
+    
+    var testBlockCallBackDemo1: TestBlockCallBackDemo1?
+    
+    var testBlockCallBackDemo2 : TestBlockCallBackDemo2?
+    
+    
+    var delegate: TestViewControllerDelegate?
+    
+   
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-view.backgroundColor = UIColor.red
+        
+     view.backgroundColor = UIColor.red
         
         
     }
-    func loadData(finished:()->())
-    {
-        print("执行耗时操作")
-        
-        finished()
-    }
-    
-    //    class  func loadStatusFromNetwork(findished:@escaping ( _ result:[[String :AnyObject]]? ,_ error: Error?)->()){
 
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-   
-      
+  
         let name = "flowerflower"
         let age = 18
         let userInfo = ["name": name,"age":age] as [String : Any]
-
-     
+        if  self.testBlockCallBackDemo != nil {
+            
+            self.testBlockCallBackDemo!()
+            
+        }
+        if self.testBlockCallBackDemo1 != nil {
+        self.testBlockCallBackDemo1!(name)
+            
+        }
         
+        if self.testBlockCallBackDemo2 != nil {
+            self.testBlockCallBackDemo2!(userInfo)
+        }
+
+        delegate?.testDelegateDemo()
+        delegate?.testDelegateDemo1(name: name)
+        delegate?.testDelegateDemo2?(userInfo: userInfo)
 
         NotificationCenter.default.post(name: NSNotification.Name("TestNotification"), object: nil)
 
