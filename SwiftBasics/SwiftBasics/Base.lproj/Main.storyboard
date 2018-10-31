@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tKn-AJ-yXq">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="AR5-x9-bDA">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -24,12 +24,11 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kLc-DH-DuW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2516" y="42"/>
+            <point key="canvasLocation" x="-446" y="-80"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SwiftBasics" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -49,8 +48,67 @@
                     </view>
                     <navigationItem key="navigationItem" id="tc1-G7-lX6"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="669.60000000000002" y="33.733133433283363"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="iaF-3s-edw">
+            <objects>
+                <navigationController id="AR5-x9-bDA" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9JS-vH-dUe">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="7yf-5Q-LYk" kind="relationship" relationship="rootViewController" id="cTJ-j7-2aV"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WgB-5q-nUg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-839" y="976"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="yhr-PW-Q8i">
+            <objects>
+                <viewController id="7yf-5Q-LYk" customClass="OCViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rWe-ax-efp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="awa-ch-WSk">
+                                <rect key="frame" x="156" y="272" width="62" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="点我进入"/>
+                                <connections>
+                                    <segue destination="Boz-Oh-dgZ" kind="push" id="6XX-ma-dmA"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="eT9-MH-Wff"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="iNn-kN-A8M"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SsX-cJ-rop" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="685.60000000000002" y="1086.2068965517242"/>
+        </scene>
+        <!--Test View Controller-->
+        <scene sceneID="MQd-ZA-CFs">
+            <objects>
+                <viewController id="Boz-Oh-dgZ" customClass="OCTestViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9ii-uu-h9J">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="mUM-U8-pfC"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Aus-7A-KiF"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Hq-vW-1kj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1705" y="1146"/>
         </scene>
     </scenes>
 </document>
